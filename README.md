@@ -16,6 +16,12 @@
 - get 방식
 - 포트 번호 3000
 
+## 개발 환경 및 사용 기술
+
+- node.js
+- mysql
+- git 배포
+
 ## 데이터 설계
 
 - id(int) : 가게 번호
@@ -36,5 +42,8 @@
   -> menuType 안 foodType  
   -> 볶음밥 등등...
 - title(string) : 이름
-- runningTime(string) : 영업 시간
+- runningTimeDefault(string) : 영업 시간
+- runningTimeOther(string) : 영업 시간 다를 경우
 - breakTime(string) : 브레이크 타임
+- dayOff(string) : 휴무일  
+  -> 월, 화, 수, 목, 금, 토, 일
