@@ -31,8 +31,8 @@
   -> 빵  
   -> 면  
   -> 등등
-- detailMenuType(int) : 세부 메뉴 종류
-  -> menuType 안 detailMenuType
+- foodType(int) : 세부 메뉴 종류
+  -> menuType 안 foodType
 - title(string) : 이름
 - runningTime(string) : 영업 시간
 - breakTime(string) : 브레이크 타임
