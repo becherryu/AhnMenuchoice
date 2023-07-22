@@ -20,6 +20,7 @@
 
 - node.js
 - mysql
+- 프레임워크 : express
 - git 배포
 
 ## 데이터 설계
