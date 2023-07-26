@@ -51,3 +51,6 @@
 - breakTime(string) : 브레이크 타임
 - dayOff(string) : 휴무일  
   -> 월, 화, 수, 목, 금, 토, 일
+
+## 데이터 설계서(ERD)
+![menu_choice_db](https://github.com/ajung7038/MenuChoice_backend/assets/80907516/cb14c90d-f457-4c1c-b786-2a8ea96196b5)
