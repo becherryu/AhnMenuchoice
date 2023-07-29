@@ -2,3 +2,13 @@
     text-align: center;
     background: linear-gradient(#1F60A9 50%, white 50%);
   }
+
+button {
+  margin-bottom: 20px;
+  border-radius: 30px;
+  color: white;
+  width: 250px;
+  height: 60px;
+  font-weight: bold;
+  font-size: 20px;
+}
