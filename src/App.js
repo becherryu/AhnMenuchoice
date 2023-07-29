@@ -10,6 +10,9 @@ import Alcohol from "./pages/Alcohol";
 import Dessert from "./pages/Dessert";
 import Brunch from "./pages/Brunch";
 
+import ResultPage from "./pages/ResultPage";
+import ResultPageList from "./pages/ResultPageList";
+
 function App() {
   return (
     <div className="App">
@@ -23,6 +26,9 @@ function App() {
           <Route path="/alcohol" element={<Alcohol />} />
           <Route path="/dessert" element={<Dessert />} />
           <Route path="/brunch" element={<Brunch />} />
+
+          <Route path="/resultpage" element={<ResultPage />} />
+          <Route path="/resultpagelist" element={<ResultPageList />} />
           <Route />
         </Routes>
       </BrowserRouter>
