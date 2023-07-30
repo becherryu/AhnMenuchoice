@@ -17,6 +17,11 @@
 - get 방식
 - 포트 번호 3000
 
+## 주의사항
+
+- db.js 파일과 docker-compose.yml 파일은 깃에 올리지 말 것. (보안 문제)
+- .gitignore 파일에 추가해뒀으니 건들지만 않으면 된다.
+
 ## 개발 환경 및 사용 기술
 
 - node.js
@@ -53,4 +58,5 @@
   -> 월, 화, 수, 목, 금, 토, 일
 
 ## 데이터 설계서(ERD)
+
 ![menu_choice_db](https://github.com/ajung7038/MenuChoice_backend/assets/80907516/cb14c90d-f457-4c1c-b786-2a8ea96196b5)

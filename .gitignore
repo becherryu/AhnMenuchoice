@@ -145,3 +145,6 @@ dist
 db.js
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+# 비밀번호가 포함되어 있기 때문에 주의해아함!
+docker-compose.yml
