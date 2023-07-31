@@ -16,7 +16,14 @@ const Home = () => {
       >
         테스트하기
       </button>
-      <button id="listBtn">가게 리스트</button>
+      <button
+        id="testBtn"
+        onClick={() => {
+          navigate("/restpagelist");
+        }}
+      >
+        가게 리스트
+      </button>
     </div>
   );
 };

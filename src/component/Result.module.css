@@ -1,0 +1,22 @@
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.btn_shadow{
+    box-shadow: 0px 0px 8px gray;
+}
+
+hr{
+    background: lightgray;
+    height: 1px;
+    border: 0;
+    margin-bottom: 15px;
+}
+
+.scroll{
+    font-size: 15px;
+    font-weight: bold;
+    color: grey;
+}
