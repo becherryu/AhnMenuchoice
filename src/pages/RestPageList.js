@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Result.css";
+import "./RestPageList.css";
 import styles from "./Result.module.css";
 
 const restaurantData = [
@@ -13,7 +13,7 @@ const restaurantData = [
     name: "샐러디 숙명여대점",
     imgSrc: process.env.PUBLIC_URL + 'img/salady_sample.png',
     hours: "08:00~21:00"
-  },
+  }
   //식당 정보 추후, 계속 추가해서 작성하면 됨.
 ];
 

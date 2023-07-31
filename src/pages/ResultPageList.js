@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../component/Result.css";
+import "../component/RestPageList.css";
 import styles from "../component/Result.module.css";
 
 import {Card, CardText} from 'reactstrap';
