@@ -69,8 +69,8 @@ const RestPageList = () => {
   };
 
   return (
-    <div>
-      <div className="Result" style={{ textAlign: 'center' }}>
+    <div className="RestPageList"> {}
+      <div style={{ textAlign: 'center' }}>
         <div className="back" style={{ textAlign: 'left' }}><IoIosArrowBack size="30" color="white" /></div>
         <button className={styles.btn_shadow} style={btnStyle3}>가게 리스트</button>
         <hr />
