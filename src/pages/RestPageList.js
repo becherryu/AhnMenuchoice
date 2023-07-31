@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./RestPageList.css";
 
-import styles from "./Result.module.css";
+import styles from "./Result.module.css"; 
 
 const restaurantData = [
   {
