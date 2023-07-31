@@ -4,7 +4,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./css/RestPageList.css";
+import "./RestPageList.css";
 
 import styles from "./Result.module.css";
 
