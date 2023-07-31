@@ -12,6 +12,7 @@ import Brunch from "./pages/Brunch";
 
 import ResultPage from "./pages/ResultPage";
 import ResultPageList from "./pages/ResultPageList";
+import RestPageList from "./pages/RestPageList"
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
 
           <Route path="/resultpage" element={<ResultPage />} />
           <Route path="/resultpagelist" element={<ResultPageList />} />
+          <Route path="/restpagelist" element={<RestPageList />} />
+          
           <Route />
         </Routes>
       </BrowserRouter>
