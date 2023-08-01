@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../component/Test.css";
 import western from "../img/western.png";
 
@@ -11,10 +11,18 @@ const Western = () => {
         <h2>양식</h2>
       </div>
       <div className="btn">
-        <button>밥</button>
-        <button>빵</button>
-        <button>면</button>
-        <button>고기</button>
+        <Link to="/resultpage">
+          <button>밥</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>빵</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>면</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>고기</button>
+        </Link>
       </div>
       <button
         id="back"
