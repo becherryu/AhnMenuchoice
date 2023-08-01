@@ -3,6 +3,7 @@ import "../component/Korean.css";
 import korean from "../img/korean.png";
 
 const Korean = () => {
+  let kn = -1;
   const navigate = useNavigate();
   return (
     <div className="test">
@@ -12,16 +13,16 @@ const Korean = () => {
       </div>
       <div className="btn">
         <Link to="/resultpage">
-          <button>밥</button>
+          <button {...(kn = 0)}>밥</button>
         </Link>
         <Link to="/resultpage">
-          <button>면</button>
+          <button {...(kn = 1)}>면</button>
         </Link>
         <Link to="/resultpage">
-          <button>분식</button>
+          <button {...(kn = 2)}>분식</button>
         </Link>
         <Link to="/resultpage">
-          <button>고기</button>
+          <button {...(kn = 3)}>고기</button>
         </Link>
       </div>
       <button
