@@ -1,9 +1,9 @@
 .Result {
-    text-align: center;
-    background: linear-gradient(#1F60A9 50%, white 50%);
-  }
+  text-align: center;
+  background: linear-gradient(#1f60a9 50%, white 50%);
+}
 
-button {
+.btn_shadow1 {
   margin-bottom: 20px;
   border-radius: 30px;
   color: white;

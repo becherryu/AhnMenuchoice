@@ -17,7 +17,7 @@ const Home = () => {
         테스트하기
       </button>
       <button
-        id="testBtn"
+        id="listBtn"
         onClick={() => {
           navigate("/restpagelist");
         }}

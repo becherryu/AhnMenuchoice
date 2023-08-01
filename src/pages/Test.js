@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../component/Test.css";
 
 const Test = () => {
+  let n = -1;
   const navigate = useNavigate();
   return (
     <div className="test">
@@ -11,6 +12,7 @@ const Test = () => {
         <button
           style={{ backgroundColor: "#9bb9da" }}
           onClick={() => {
+            n = 0;
             navigate("/korean");
           }}
         >
@@ -19,6 +21,7 @@ const Test = () => {
         <button
           style={{ backgroundColor: "#9bb9da" }}
           onClick={() => {
+            n = 1;
             navigate("/asian");
           }}
         >
@@ -27,6 +30,7 @@ const Test = () => {
         <button
           style={{ backgroundColor: "#9bb9da" }}
           onClick={() => {
+            n = 2;
             navigate("/western");
           }}
         >
@@ -35,6 +39,7 @@ const Test = () => {
         <button
           style={{ backgroundColor: "#9bb9da" }}
           onClick={() => {
+            n = 3;
             navigate("/alcohol");
           }}
         >
@@ -43,6 +48,7 @@ const Test = () => {
         <button
           style={{ backgroundColor: "#9bb9da" }}
           onClick={() => {
+            n = 4;
             navigate("/dessert");
           }}
         >
@@ -51,6 +57,7 @@ const Test = () => {
         <button
           style={{ backgroundColor: "#9bb9da" }}
           onClick={() => {
+            n = 5;
             navigate("/brunch");
           }}
         >
