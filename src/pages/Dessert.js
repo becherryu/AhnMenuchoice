@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../component/Alcohol.css";
 import dessert from "../img/dessert.png";
 
@@ -11,8 +11,12 @@ const Dessert = () => {
         <h2>디저트</h2>
       </div>
       <div className="abtn">
-        <button>테이크아웃</button>
-        <button>좌석O</button>
+        <Link to="/resultpage">
+          <button>테이크아웃</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>좌석O</button>
+        </Link>
       </div>
       <button
         id="back"

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../component/Korean.css";
 import asian from "../img/asian.png";
 
@@ -11,10 +11,18 @@ const Asian = () => {
         <h2>아시안</h2>
       </div>
       <div className="btn">
-        <button>중식</button>
-        <button>일식</button>
-        <button>쌀국수</button>
-        <button>고기</button>
+        <Link to="/resultpage">
+          <button>중식</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>일식</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>베트남</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>인도</button>
+        </Link>
       </div>
       <button
         id="back"

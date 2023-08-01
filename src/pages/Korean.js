@@ -14,9 +14,15 @@ const Korean = () => {
         <Link to="/resultpage">
           <button>밥</button>
         </Link>
-        <button>면</button>
-        <button>분식</button>
-        <button>고기</button>
+        <Link to="/resultpage">
+          <button>면</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>분식</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>고기</button>
+        </Link>
       </div>
       <button
         id="back"

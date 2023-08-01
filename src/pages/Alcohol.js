@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../component/Alcohol.css";
 import alcohol from "../img/alcohol.png";
 
@@ -11,8 +11,12 @@ const Alcohol = () => {
         <h2>술집</h2>
       </div>
       <div className="abtn">
-        <button>1차</button>
-        <button>2차</button>
+        <Link to="/resultpage">
+          <button>1차</button>
+        </Link>
+        <Link to="/resultpage">
+          <button>2차</button>
+        </Link>
       </div>
       <button
         id="back"
