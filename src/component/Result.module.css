@@ -4,10 +4,6 @@
     color: white;
 }
 
-.btn_shadow{
-    box-shadow: 0px 0px 8px gray;
-}
-
 hr{
     background: lightgray;
     height: 1px;
@@ -19,4 +15,8 @@ hr{
     font-size: 15px;
     font-weight: bold;
     color: grey;
+}
+
+#imgCenter{
+    text-align: center;
 }
