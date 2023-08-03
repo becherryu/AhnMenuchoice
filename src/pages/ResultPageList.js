@@ -5,8 +5,6 @@ import styles from "../component/Result.module.css";
 
 import {Card, CardText} from 'reactstrap';
 
-import {IoIosArrowBack} from "react-icons/io";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,7 +25,9 @@ const ResultSlider=()=>{
         <Slider {...settings}>
             <div style="line-height: 200%">
                 <Card>
+                    <center>
                     <img src={saladysmp} />
+                    </center>
                     <CardText>
                         샐러디 숙명여대점<br/>
                         영업시간<br/>
@@ -37,7 +37,9 @@ const ResultSlider=()=>{
             </div>
             <div>
                 <Card>
+                    <center>
                     <img src={monstersmp} />
+                    </center>
                     <CardText>
                         몬스터플레이스<br/>
                         영업시간<br/>
@@ -47,7 +49,9 @@ const ResultSlider=()=>{
             </div>
             <div>
                 <Card>
+                    <center>
                     <img src={saladysmp} />
+                    </center>
                     <CardText>
                         샐러디 숙명여대점<br/>
                         영업시간<br/>
@@ -57,7 +61,9 @@ const ResultSlider=()=>{
             </div>
             <div>
                 <Card>
+                    <center>
                     <img src={monstersmp} />
+                    </center>
                     <CardText>
                         몬스터플레이스<br/>
                         영업시간<br/>
@@ -81,7 +87,7 @@ const ResultSlider=()=>{
 const ResultPageList=()=>{
     return(
         <div className="Result">
-            <div className="back" style={{textAlign: 'left'}}><IoIosArrowBack size="30" color="white"/></div>
+            <br/>
             <h1 className={styles.title}>당신의 선택 결과</h1>
 
             <div>
