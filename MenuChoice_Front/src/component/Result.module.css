@@ -1,0 +1,22 @@
+.title{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+hr{
+    background: lightgray;
+    height: 1px;
+    border: 0;
+    margin-bottom: 15px;
+}
+
+.scroll{
+    font-size: 15px;
+    font-weight: bold;
+    color: grey;
+}
+
+#imgCenter{
+    text-align: center;
+}
