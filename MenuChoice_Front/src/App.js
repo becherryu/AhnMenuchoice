@@ -13,7 +13,6 @@ import Brunch from "./pages/Brunch";
 import ResultPage from "./pages/ResultPage";
 import ResultPageList from "./pages/ResultPageList";
 import RestPageList from "./pages/RestPageList";
-import ResultPageAhn from "./pages/resultPageAhn";
 
 function App() {
   return (
