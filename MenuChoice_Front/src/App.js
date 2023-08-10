@@ -12,7 +12,8 @@ import Brunch from "./pages/Brunch";
 
 import ResultPage from "./pages/ResultPage";
 import ResultPageList from "./pages/ResultPageList";
-import RestPageList from "./pages/RestPageList"
+import RestPageList from "./pages/RestPageList";
+import ResultPageAhn from "./pages/resultPageAhn";
 
 function App() {
   return (
@@ -28,10 +29,13 @@ function App() {
           <Route path="/dessert" element={<Dessert />} />
           <Route path="/brunch" element={<Brunch />} />
 
-          <Route path="/resultpage" element={<ResultPage />} />
-          <Route path="/resultpagelist" element={<ResultPageList />} />
+          <Route path="/resultpage/:randomValue" element={<ResultPage />} />
+          <Route
+            path="/resultpagelist/:randomValue"
+            element={<ResultPageList />}
+          />
           <Route path="/restpagelist" element={<RestPageList />} />
-          
+
           <Route />
         </Routes>
       </BrowserRouter>

@@ -1,9 +1,9 @@
-import React from "react";
+//import React from "react";
 
 import "../component/RestPageList.css";
 import styles from "../component/Result.module.css";
 
-import {Card, CardText} from 'reactstrap';
+import { Card, CardText } from "reactstrap";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -13,96 +13,90 @@ import resultsmp from "../img/result_sample.png";
 import saladysmp from "../img/salady_sample.png";
 import monstersmp from "../img/monster_sample.png";
 
-const ResultSlider=()=>{
-    const settings={
-        dots: false,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-    };
+//아현 추가
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-    return(
-        <Slider {...settings}>
-            <div style="line-height: 200%">
-                <Card>
-                    <center>
-                    <img src={saladysmp} />
-                    </center>
-                    <CardText>
-                        샐러디 숙명여대점<br/>
-                        영업시간<br/>
-                        08:00~21:00<br/>
-                    </CardText>
-                </Card>
-            </div>
-            <div>
-                <Card>
-                    <center>
-                    <img src={monstersmp} />
-                    </center>
-                    <CardText>
-                        몬스터플레이스<br/>
-                        영업시간<br/>
-                        08:00~20:30<br/>
-                    </CardText>
-                </Card>
-            </div>
-            <div>
-                <Card>
-                    <center>
-                    <img src={saladysmp} />
-                    </center>
-                    <CardText>
-                        샐러디 숙명여대점<br/>
-                        영업시간<br/>
-                        08:00~21:00<br/>
-                    </CardText>
-                </Card>
-            </div>
-            <div>
-                <Card>
-                    <center>
-                    <img src={monstersmp} />
-                    </center>
-                    <CardText>
-                        몬스터플레이스<br/>
-                        영업시간<br/>
-                        08:00~20:30<br/>
-                    </CardText>
-                </Card>
-            </div>
-            <div>
-                1
-            </div>
-            <div>
-                2
-            </div>
-            <div>
-                3
-            </div>
-        </Slider>
-    )
-}
+const ResultSlider = ({ storeInfo }) => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+  };
 
-const ResultPageList=()=>{
-    return(
-        <div className="Result">
-            <br/>
-            <h1 className={styles.title}>당신의 선택 결과</h1>
-
-            <div>
-                <img src={resultsmp} />
-            </div>
-
-            <hr/>
-            <div>
-                <ResultSlider/>
-            </div>
-            <hr/>
-            
-            <h5 className={styles.scroll}>좌우로 스크롤 하여 확인해보세요 :)</h5>
+  //<img src={store.image}
+  return (
+    <Slider {...settings}>
+      {storeInfo.map((store) => (
+        <div key={store.id} style={{ lineHeight: "200%" }}>
+          <Card>
+            <center>
+              <img src={saladysmp} alt={store.title} />
+            </center>
+            <CardText>
+              {store.title}
+              <br />
+              영업시간
+              <br />
+              {store.default_runningtime}
+              <br />
+            </CardText>
+          </Card>
         </div>
-    );
+      ))}
+    </Slider>
+  );
+};
+
+const ResultPageList = () => {
+  const { randomValue } = useParams();
+  const [storeInfo, setStoreInfo] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/api/randomValue/${randomValue}`);
+        console.log("Random value send:", randomValue);
+        setStoreInfo(response.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [randomValue]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <div className="Result">
+      <br />
+      <h1 className={styles.title}>당신의 선택 결과</h1>
+
+      <div>
+        <img src={resultsmp} />
+      </div>
+
+      <hr />
+      <div>
+        <ResultSlider storeInfo={storeInfo} />
+      </div>
+      <hr />
+
+      <h5 className={styles.scroll}>좌우로 스크롤 하여 확인해보세요 :)</h5>
+    </div>
+  );
 };
 
 export default ResultPageList;

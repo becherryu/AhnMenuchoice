@@ -1,111 +1,63 @@
+//아현 작성
+
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-var db = require("./db.js");
+var db = require("./db.js"); //mysql 연결 설정
 var conn = db.init();
 const cors = require("cors"); // CORS 미들웨어 추가
+const PORT = 5000;
 
-//const koreanRouter = require("./korean-db");
-
-// CORS 설정
 app.use(cors());
+app.use(bodyParser.json());
 
-// /Korean 엔드포인트에 koreanRouter 라우터를 등록
-//app.use("/Korean", koreanRouter);
+//http://localhost:5000/api/randomValue/11
+//get으로 데이터 전송(resultPage에)
+app.get("/api/randomValue/:randomValue", (req, res) => {
+  // resultPage에서 전달한 선택 버튼의 id값
+  const randomValue = req.params.randomValue;
 
-// MySQL 연결
-db.connect(conn);
+  console.log("Received randomValue: ", randomValue);
 
-// 데이터 쿼리문
+  // 'id-menu_type'테이블에서 id 조회
+  const queryFoodType = "SELECT id FROM `id-food_id` WHERE food_type_id = ?";
 
-app.get("/resultpage", function (req, res) {
-  // store 테이블 데이터 가져오는 쿼리 작성
-  const sql = "SELECT * FROM store";
-
-  // 쿼리 실행
-  conn.query(sql, (err, results) => {
+  conn.query(queryFoodType, [randomValue], (err, resultsFoodType) => {
     if (err) {
-      console.error("쿼리 실행 에러 : " + err);
-      res.status(500).send("쿼리 실행 오류");
+      console.error("Error querying 'id-food_type' table: ", err);
+      res
+        .status(500)
+        .json({ error: "Error fetching id from 'id-food_type' table" });
     } else {
-      // 쿼리 결과를 res.send로 보냄
-      res.send(results);
+      if (resultsFoodType.length > 0) {
+        const selectedIds = resultsFoodType.map((row) => row.id);
+
+        // 'store' 테이블에서 title과 default_runningtime 조회
+        const queryStore =
+          "SELECT id, title, default_runningtime FROM store WHERE id IN (?)";
+        conn.query(queryStore, [selectedIds], (err, resultsStore) => {
+          if (err) {
+            console.error("Error querying 'store' table: ", err);
+            res.status(500).json({
+              error: "Error fetching store info from 'store' table",
+            });
+          } else {
+            if (resultsStore.length > 0) {
+              const storeInfoArray = resultsStore;
+              console.log("Retrieved storeInfoArray:", storeInfoArray);
+              res.json(storeInfoArray);
+            } else {
+              res.status(404).json({ error: "Store not found" });
+            }
+          }
+        });
+      } else {
+        res.status(404).json({ error: "Food type not found" });
+      }
     }
   });
 });
 
-//
-//
-//
-//
-// 가게 리스트 페이지
-app.get("/resultpagelist", function (req, res) {
-  // 버튼 선택에 따른 sql문 구현
-  let sql;
-  sql = "SELECT store.title FROM store"; // 전체
-
-  // if (req.query.type == 0) {
-  //   sql = "SELECT store.title FROM store"; // 전체
-  // } else if (req.query.type >= 1 && req.query.type <= 6) {
-  //   // 한식, 아시안, 양식, 술집, 디저트, 브런치
-  //   sql = `
-  //   SELECT store.title
-  //   FROM store
-  //   JOIN \`id-store_id\` ON store.id = \`id-store_id\`.id
-  //   WHERE \`id-store_id\`.store_type_id = ${req.query.type}
-  //   `;
-  // } else {
-  //   // 적절하지 않은 버튼 선택에 대한 예외처리
-  //   res.status(400).send("잘못된 버튼 선택");
-  //   return;
-  // }
-
-  // 쿼리 실행
-  conn.query(sql, (err, results) => {
-    if (err) {
-      console.error("쿼리 실행 에러 : " + err);
-      res.status(500).send("쿼리 실행 오류");
-    } else {
-      // 쿼리 결과를 res.send로 보냄
-      res.send(results);
-    }
-  });
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
-
-//
-//
-//
-//
-// 테스트 페이지
-app.get("/Korean", function (req, res) {
-  // 버튼 선택에 따른 sql문 구현
-  let sql;
-
-  if (req.query.type >= 1 && req.query.type <= 6) {
-    // 한식, 아시안, 양식, 술집, 디저트, 브런치
-    sql = `
-    SELECT store.title
-    FROM store
-    JOIN \`id-store_id\` ON store.id = \`id-store_id\`.id
-    WHERE \`id-store_id\`.store_type_id = ${req.query.type}
-  `;
-  } else {
-    // 적절하지 않은 버튼 선택에 대한 예외처리
-    res.status(400).send("잘못된 버튼 선택");
-    return;
-  }
-
-  // 쿼리 실행
-  conn.query(sql, (err, results) => {
-    if (err) {
-      console.error("쿼리 실행 에러 : " + err);
-      res.status(500).send("쿼리 실행 오류");
-    } else {
-      // // 쿼리 결과를 res.send로 보냄
-      res.send(results);
-      // 쿼리 결과를 /Korean/example로 보냄
-      //res.redirect("/Korean/example");
-    }
-  });
-});
-
-app.listen(5000);

@@ -1,5 +1,5 @@
 //import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "../component/Result.css";
 import styles from "../component/Result.module.css";
@@ -7,13 +7,35 @@ import "../component/Home.css";
 
 import resultsmp from "../img/result_sample.png";
 
+// front - back connect
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const ResultPage = () => {
-  const [data, setData] = useState([]);
+  //randomValue값 그대로 전달하기
+  // URL 매개변수 추출하기
+  const { randomValue } = useParams();
 
-  useEffect(() => {
+  return (
+    <div className="Result">
+      <br />
+      <h1 className={styles.title}>당신의 선택 결과</h1>
+      <div>
+        <img src={resultsmp} />
+      </div>
+
+      <button id="testBtn">다시 선택하기</button>
+      <br />
+      <Link to={`/resultpagelist/${randomValue}`}>
+        <button id="listBtn">가게 보러가기</button>
+      </Link>
+    </div>
+  );
+};
+
+export default ResultPage;
+
+/*useEffect(() => {
     //백엔드 API 엔드포인트로 HTTP GET 요청 보내기
     axios
       .get("http://localhost:5000/resultpagelist")
@@ -25,11 +47,7 @@ const ResultPage = () => {
       });
   }, []);
 
-  return (
-    <div className="Result">
-      <br />
-      <h1 className={styles.title}>당신의 선택 결과</h1>
-      <h1>
+  <h1>
         <ul>
           {data.map((item) => (
             <li key={item.id}>
@@ -39,17 +57,4 @@ const ResultPage = () => {
           ))}
         </ul>
       </h1>
-      <div>
-        <img src={resultsmp} />
-      </div>
-
-      <button id="testBtn">다시 선택하기</button>
-      <br />
-      <Link to="/resultpagelist">
-        <button id="listBtn">가게 보러가기</button>
-      </Link>
-    </div>
-  );
-};
-
-export default ResultPage;
+      */
