@@ -22,7 +22,7 @@ const ResultSlider = ({ storeInfo }) => {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
   };
 
